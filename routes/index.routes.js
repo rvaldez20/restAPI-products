@@ -8,6 +8,9 @@ module.exports = function() {
 
    // Obtener todos los clientes
    router.get('/clientes', clienteController.mostrarClientes);
+
+   // Obtener un cliente en especifico(ID)
+   router.get('/clientes/:id', clienteController.mostrarCliente);
    
    return router;
 }
