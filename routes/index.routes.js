@@ -10,7 +10,10 @@ module.exports = function() {
    router.get('/clientes', clienteController.mostrarClientes);
 
    // Obtener un cliente en especifico(ID)
-   router.get('/clientes/:id', clienteController.mostrarCliente);
+   router.get('/clientes/:idCliente', clienteController.mostrarCliente);
+
+   // Actualizar un cliente
+   router.put('/clientes/:idCliente', clienteController.actualizarCliente);
    
    return router;
 }

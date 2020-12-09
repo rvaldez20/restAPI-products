@@ -33,7 +33,7 @@ exports.mostrarClientes = async (req, res, next) => {
 
 // Muestra un cliente especifico por ID
 exports.mostrarCliente = async (req, res, next) => {
-   const cliente = await Clientes.findById(req.params.id);
+   const cliente = await Clientes.findById(req.params.idCliente);
    console.log(cliente);
 
    if(!cliente){
@@ -42,4 +42,18 @@ exports.mostrarCliente = async (req, res, next) => {
    }
 
    res.json(cliente);
+}
+
+
+// Actualiz aun cliente por su ID
+exports.actualizarCliente = async (req, res, next) => {
+   try {
+      const cliente = await Clientes.findOneAndUpdate({ _id: req.params.idCliente }, req.body, {
+         new:true
+      });
+      res.json(cliente);
+   } catch (error) {
+      console.log(error);
+      next();
+   }
 }
