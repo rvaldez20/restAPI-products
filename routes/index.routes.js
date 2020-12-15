@@ -25,7 +25,10 @@ module.exports = function() {
    /** PRODUCTOS */
 
    // Agrega un nuevo producto
-   router.post('/productos', productosController.nuevoProducto);
+   router.post('/productos',
+      productosController.subirArchivo,
+      productosController.nuevoProducto
+   );
    
    return router;
 }
