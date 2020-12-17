@@ -62,12 +62,30 @@ exports.nuevoProducto = async (req, res, next) => {
    }
 }
 
-// mustra todos los productos
+// Mustra todos los productos
 exports.mostrarProductos = async (req, res, next) => {
    try {
       // obtener todos los productos
       const productos = await Productos.find({});
       res.json(productos);
+   } catch (error) {
+      console.log(error);
+      next();
+   }
+}
+
+// Muestra un producto en especifico por su ID
+exports.mostrarProducto = async (req, res, next) => {
+   try {
+      const producto = await Productos.findById(req.params.idProducto);
+      // console.log(producto);
+
+      if(!producto){
+         res.json({ mensaje: 'El producto no esta registrado'});
+      }
+
+      res.json(producto);
+      
    } catch (error) {
       console.log(error);
       next();
