@@ -41,6 +41,9 @@ module.exports = function() {
       productosController.subirArchivo,
       productosController.actualizarProducto
    );
+
+   // Elimina un producto pro ID
+   router.delete('/productos/:idProducto', productosController.eliminarProducto);
    
    return router;
 }
