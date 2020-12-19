@@ -12,7 +12,7 @@ const pedidosSchema = new Schema({
       type: Schema.ObjectId,
       ref: 'Clientes'
    },
-   producto: [{
+   pedido: [{
       producto: {
          type: Schema.ObjectId,
          ref: 'Productos'
