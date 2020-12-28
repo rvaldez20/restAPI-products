@@ -53,6 +53,9 @@ module.exports = function() {
    // crea un nuevo pedido
    router.post('/pedidos', pedidosController.nuevoPedido);
 
+   // Muestra todos los pedidos
+   router.get('/pedidos', pedidosController.mostrarPedidos);
+
    
    return router;
 }
