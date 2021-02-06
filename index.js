@@ -28,7 +28,8 @@ app.use(cors());
 // rutas de la app
 app.use('/', routes());
 
-
+// se define directorio static
+app.use(express.static('uploads'));
 
 // puerto
 app.listen(5000);
