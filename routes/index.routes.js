@@ -23,6 +23,8 @@ module.exports = function() {
    router.delete('/clientes/:idCliente', clienteController.eliminarCliente);
 
 
+
+
    /** PRODUCTOS */
 
    // Agrega un nuevo producto
@@ -45,6 +47,9 @@ module.exports = function() {
 
    // Elimina un producto pro ID
    router.delete('/productos/:idProducto', productosController.eliminarProducto);
+
+   // Busqueda de producto
+   router.post('/productos/busqueda/:query', productosController.buscarProducto);
 
 
    /** PEDIDOS */

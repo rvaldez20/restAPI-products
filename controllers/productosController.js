@@ -127,3 +127,26 @@ exports.eliminarProducto = async (req, res, next) => {
       next();
    }
 }
+
+
+// Buscar un producto
+exports.buscarProducto = async (req, res, next) => {
+   try {
+      // obtenemos el query
+      const {query} = req.params;      
+
+      const producto = await Productos.find({ 
+         nombre: new RegExp(query, 'i') 
+      });
+
+      if(!producto) {
+         res.json({ mensaje: 'Producto no encontrado'});
+         return next();
+      }
+
+      res.json(producto);      
+   } catch (error) {
+      console.log(error);
+      next();
+   }
+}
