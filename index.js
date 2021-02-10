@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 const routes = require('./routes/index.routes');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -31,5 +32,10 @@ app.use('/', routes());
 // se define directorio static
 app.use(express.static('uploads'));
 
+// habilitamos morgan
+app.use(morgan('dev'));
+
 // puerto
-app.listen(5000);
+app.listen(5000, () => {
+   console.log('Listen on Port 5000');
+});
