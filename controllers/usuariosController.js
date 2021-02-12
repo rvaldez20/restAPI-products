@@ -33,7 +33,7 @@ exports.autenticarUsuario = async (req, res, next) => {
       next();
    } else {
       // si el usuario SI existe
-      // Primero verificamos si el password es correcto
+      // Primero verificamos si el password es incorrecto
       // password -> viene del formulario | usuario.password -> es el passwor en la db
       if(!bcrypt.compareSync(password, usuario.password)) {
          //Si el password es incorrecto
@@ -51,8 +51,8 @@ exports.autenticarUsuario = async (req, res, next) => {
             email: usuario.email,
             nombre: usuario.nombre,
             id: usuario._id
-         }
-         , 'LLAVESECRETA',
+         }, 
+           'LLAVESECRETA',
          {
             expiresIn: '1h'
          });
